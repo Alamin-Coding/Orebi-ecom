@@ -1,20 +1,18 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ data }) => {
+const ProductCard = ({product}) => {
+  const {thumbnail, price, title, newProduct} = product
 
-  const { title, thumbnail, price, newProduct } = data;
   return (
     <>
       <div className="relative">
-        {newProduct && (
-          <label
+          {newProduct && <label
             htmlFor="/"
             className="absolute z-10 left-3 top-3 px-7 py-2 text-base bg-black text-white text-[14px]"
           >
             New
-          </label>
-        )}
+          </label>}
 
         <div className="relative group hover:cursor-pointer">
           <img

@@ -159,7 +159,7 @@ const footer = () => {
             </div>
             <div className="pl-10">
               <Link href="/">
-                <img src="./images/Logo.png" alt="Website logo" />
+                <img src="/src/assets/images/logo.png" alt="Website logo" />
               </Link>
             </div>
           </div>

@@ -1,23 +1,33 @@
 
+import Section from "../components/Section";
+import ProductCard from "../components/ProductCard";
 import { useProductContext } from "../context/productContext";
-import ProductCard from "../components/productCard";
 
 const Home = () => {
-  const {isLoading, newArrivals, products} = useProductContext();
-  // console.log(newArrivals);
+  const { isLoading, newArrival, bestSellers } = useProductContext();
 
   return (
     <div className="container">
-      {isLoading && <h1 className="text-2xl text-blue-500 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">Product is loading.....</h1>}
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {/* New Arrival Section */}
+      <Section sectionHeading={"New Arrivals"}>
         {
-          products.map((e) => {
-            return (
-              <ProductCard key={e.id} data={e} />
-            )
-          })
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {newArrival.map((product) => {
+            return <ProductCard key={product.id} product={product} />;
+          })}
+        </div>
         }
-      </div>
+      </Section>
+      {/* Our Bestsellers Section */}
+      <Section sectionHeading={"Our Bestsellers"}>
+        {
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {bestSellers.map((product) => {
+            return <ProductCard key={product.id} product={product} />;
+          })}
+        </div>
+        }
+      </Section>
     </div>
   );
 };

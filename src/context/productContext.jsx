@@ -1,50 +1,56 @@
 /* eslint-disable react/prop-types */
-// import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
+import reducer from "../reducers/ProductReducer";
 import { API } from "../data/api";
-import reducer from "../reducers/productReducer";
 
 
+const AppContext = createContext();
 
-const ProductContext = createContext();
+const initialState = {
+ isLoading: false,
+ isError: false,
+ products: [],
+ newArrival: [],
+ bestSellers: [],
+ singleProduct: {
+  id: 1,
+  title: "I Phone 13 pro"
+ }
+}
 
-const initialValue = {
-  isLoading: false,
-  isError: false,
-  products: [],
-  newArrivals: [],
-};
+
+const ProductContext = ({children}) => {
+ const [state, dispatch] = useReducer(reducer, initialState);
+
+ const getProduct = async (url) => {
+  dispatch({type: "SET_LOADING"})
+  try {
+   const products = await url;
+   dispatch({type: "SET_API_DATA", payload: products})
+  } catch (error) {
+   console.log(error);
+   // dispatch({type: "SET_ERROR"})
+  }
+ };
 
 
-const AppContext = ({ children }) => {
-
- const [state, dispatch] = useReducer(reducer, initialValue)
-
-  const getProducts = async (url) => {
-   dispatch({type: "SET_LEADING"});
-    try {
-     const products = await url
-     dispatch({type: "SET_API_DATA", payload: products});
-    } catch (error) {
-     console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getProducts(API);
-  }, []);
+ useEffect(() => {
+  getProduct(API)
+ },[]);
 
   return (
-    <ProductContext.Provider value={{...state}}>
+    <AppContext.Provider value={{...state}}>
       {children}
-    </ProductContext.Provider>
-  );
-};
+    </AppContext.Provider>
+  )
+}
 
 // Custom Hook
 
 const useProductContext = () => {
-  return useContext(ProductContext);
+  return useContext(AppContext);
 };
 
-export { ProductContext, AppContext, useProductContext };
+
+
+export { ProductContext, AppContext, useProductContext }

@@ -1,10 +1,13 @@
 
+// import { useProductContext } from "../context/productContext"
+
 
 const About = () => {
 
+  // const {singleProduct} = useProductContext()
  return (
    <div>
-     About Page
+     {/* About Page {singleProduct.id} */}
    </div>
  )
 }
