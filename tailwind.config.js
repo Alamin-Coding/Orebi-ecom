@@ -16,7 +16,7 @@ export default {
     },
     extend: {
       backgroundImage: {
-        'hero-1': "url('/images/slider-1.png')",
+        'hero-1': "url('/src/assets/images/slider-1.png')",
         'hero-2': "url('/images/slider-2.png')",
         'phone-sale': "url('/images/image-12.png')"
       },
