@@ -12,6 +12,7 @@ const initialState = {
  products: [],
  newArrival: [],
  bestSellers: [],
+ discountProduct: [],
  singleProduct: {
   id: 1,
   title: "I Phone 13 pro"

@@ -15,12 +15,16 @@ const ProductReducer = (state, action) => {
     const bestSellers = action.payload.filter((curElem) => {
       return curElem.bestsellers === true
     })
+    const discountProduct = action.payload.filter((curElem) => {
+      return curElem.discountProduct === true
+    })
      return {
       ...state,
       isLoading: false,
       products: action.payload,
       newArrival,
       bestSellers,
+      discountProduct
      }
   
   

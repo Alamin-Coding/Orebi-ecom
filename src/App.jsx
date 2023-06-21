@@ -7,6 +7,7 @@ import Home from "./routes/Home";
 import About from "./routes/about";
 import Shop from "./routes/shop";
 import Journal from "./routes/journal";
+import SingleProduct from "./routes/singleProduct";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "product/:id",
+        element: <SingleProduct />,
       },
     ],
   },

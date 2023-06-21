@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import ConvertCurrency from "../helper/convertCurrency";
 
 const ProductCard = ({product}) => {
-  const {thumbnail, price, title, newProduct} = product
+  const {thumbnail, price, title, newProduct , id} = product
 
   return (
     <>
+    <Link to={`product/${id}`}>
       <div className="relative">
           {newProduct && <label
             htmlFor="/"
@@ -97,12 +99,13 @@ const ProductCard = ({product}) => {
           <h4 className="text-heading text-xl leading-normal font-bold flex justify-between gap-2 items-center">
             <Link to="/">{title}</Link>
             <span className="text-[#767676] text-base leading-normal font-normal">
-              ${price}
+              <ConvertCurrency price={price} />
             </span>
           </h4>
           <p className="text-paragraph text-base leading-normal">Black</p>
         </div>
       </div>
+      </Link>
     </>
   );
 };

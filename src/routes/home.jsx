@@ -3,14 +3,18 @@ import ProductCard from "../components/ProductCard";
 import { useProductContext } from "../context/productContext";
 import Banner from "../components/Banner";
 import Feature from "../components/Feature";
+import DiscountProduct from "../components/DiscountProduct";
 
 const Home = () => {
-  const { isLoading, newArrival, bestSellers } = useProductContext();
+  const { isLoading, newArrival, bestSellers, discountProduct } = useProductContext();
+
+  console.log(discountProduct);
 
   return (
     <>
       <Banner />
       <Feature />
+      <DiscountProduct discountProductData={discountProduct} />
       <div className="container">
         {/* New Arrival Section */}
         <Section sectionHeading={"New Arrivals"}>
