@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import Color from "./color";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import Button from "../Button";
 
-const SingleProductDescription = ({ productName }) => {
+const SingleProductDescription = () => {
   return (
     <>
       <div>
@@ -149,7 +150,6 @@ const SingleProductDescription = ({ productName }) => {
             and scrambled it to make a type specimen book. It has survived not
             only five centuries, but also the leap into electronic typesetting,
             remaining essentially unchanged.
-            <br />
           </p>
         </div>
 
@@ -201,7 +201,10 @@ const SingleProductDescription = ({ productName }) => {
                 />
               </div>
             </div>
-            <Button>Post</Button>
+            <button
+              className="w-[200px] h-[50px] bg-neutral-800 text-center text-white text-[14px] font-bold tracking-[2px]"
+              onClick={() => alert("Post")}
+            >Post</button>
           </form>
         </div>
       </div>

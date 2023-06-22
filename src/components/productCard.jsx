@@ -2,26 +2,31 @@
 import { Link } from "react-router-dom";
 import ConvertCurrency from "../helper/convertCurrency";
 
-const ProductCard = ({product}) => {
-  const {thumbnail, price, title, newProduct , id} = product
+const ProductCard = ({ product }) => {
+  const { thumbnail, price, title, newProduct, id } = product;
 
   return (
     <>
-    <Link to={`product/${id}`}>
       <div className="relative">
-          {newProduct && <label
+        {newProduct && (
+          <label
             htmlFor="/"
             className="absolute z-10 left-3 top-3 px-7 py-2 text-base bg-black text-white text-[14px]"
           >
             New
-          </label>}
+          </label>
+        )}
 
         <div className="relative group hover:cursor-pointer">
-          <img
-            className="object-cover w-full h-52"
-            src={thumbnail}
-            alt="image-4"
-          />
+          <Link to={`product/${id}`}>
+            <figure>
+              <img
+                className="object-cover w-full h-52"
+                src={thumbnail}
+                alt="image-4"
+              />
+            </figure>
+          </Link>
           <div className="absolute w-full bottom-0 right-0 bg-white opacity-0 group-hover:opacity-100 transition-all">
             <div className="flex flex-col gap-2 py-4 px-4">
               <p className="flex justify-end gap-3 items-center">
@@ -97,7 +102,7 @@ const ProductCard = ({product}) => {
         </div>
         <div className="py-6">
           <h4 className="text-heading text-xl leading-normal font-bold flex justify-between gap-2 items-center">
-            <Link to="/">{title}</Link>
+            <Link to={`product/${id}`}>{title}</Link>
             <span className="text-[#767676] text-base leading-normal font-normal">
               <ConvertCurrency price={price} />
             </span>
@@ -105,7 +110,6 @@ const ProductCard = ({product}) => {
           <p className="text-paragraph text-base leading-normal">Black</p>
         </div>
       </div>
-      </Link>
     </>
   );
 };

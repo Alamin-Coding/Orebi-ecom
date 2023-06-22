@@ -1,3 +1,4 @@
+import Button from "./Button";
 const Banner = () => {
   return (
     <section className="bg-hero-1 bg-no-repeat bg-cover bg-center py-24 md:py-[165px]">
@@ -7,9 +8,9 @@ const Banner = () => {
           Up to <span className="text-[40px] text-[#262626]">50%</span>sale for
           all furniture items!
         </p>
-        <a className="inline-block px-14 py-4 bg-black text-white" href="#">
-          Shop now
-        </a>
+        <div>
+          <Button navigate="/shop">Shop Now</Button>
+        </div>
       </div>
     </section>
   );

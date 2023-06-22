@@ -1,7 +1,9 @@
+
 import Button from "./Button";
 
 /* eslint-disable react/prop-types */
-const DiscountProduct = ({discountProductData}) => {
+const DiscountProduct = ({ discountProductData }) => {
+  console.log(discountProductData);
   return (
     <section>
       <div className="container">
@@ -20,7 +22,9 @@ const DiscountProduct = ({discountProductData}) => {
                 Up to <span className="text-[40px] text-[#262626]">30%</span>
                 sale for all phones!
               </p>
-              <Button>Shop Now</Button>
+              <div>
+                <Button navigate="/shop">Shop Now</Button>
+              </div>
             </div>
           </div>
 
@@ -39,7 +43,9 @@ const DiscountProduct = ({discountProductData}) => {
                   Up to <span className="text-[40px] text-[#262626]">70%</span>
                   sale for all electronics!
                 </p>
-                <Button>Shop Now</Button>
+                <div>
+                  <Button navigate="/shop">Shop Now</Button>
+                </div>
               </div>
             </div>
             <div className="relative">
@@ -56,7 +62,9 @@ const DiscountProduct = ({discountProductData}) => {
                   Up to <span className="text-[40px] text-[#262626]">50%</span>
                   sale for all furniture items!
                 </p>
-                <Button>Shop Now</Button>
+                <div>
+                  <Button navigate="/shop">Shop Now</Button>
+                </div>
               </div>
             </div>
           </div>

@@ -9,11 +9,12 @@ const SingleProduct = () => {
       <div className="container">
         {/* Breadcrumb start */}
         <div className="py-4">
-          <p>
-            <Link to={"/"} className="text-blue-500">
+          <p className="text-neutral-500 text-xl font-normal flex gap-3 items-center">
+            <Link to={"/"} className="text-slate-900">
               Home
             </Link>
-            /<span>Product {id}</span>
+            /
+            <span className="text-gray-400">Product {id}</span>
           </p>
         </div>
         {/* Breadcrumb end */}
@@ -21,6 +22,7 @@ const SingleProduct = () => {
         {/* Image Grid start */}
         <ImageGrid />
         {/* Image Grid end */}
+
         {/* Product Description start */}
         <SingleProductDescription />
         {/* Product Description end */}
